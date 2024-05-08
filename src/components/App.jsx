@@ -1,18 +1,14 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { FeedbackOptions } from './FeedbackOptions';
 import { Notification } from './Notification';
 import { Statistics } from './Statistics';
-export class App extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
+export const App = () => {
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0)
 
-  handleClick = option => {
-    this.setState(prevState => ({
-      [option]: prevState[option] + 1,
-    }));
+  const handleClick = option => {
+    set{option[0].toUpperCase() + option.slice(1)}(prevState => prevState + 1);
   };
 
   countTotalFeedback = () => {
