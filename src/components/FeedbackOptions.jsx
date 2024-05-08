@@ -1,11 +1,15 @@
-// onLeaveFeedback to importowanie funkcji z komponentu App.jsx
+import '../index.css';
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
-    <ul>
+    <ul className="list">
       {options.map(option => {
         return (
           <li>
-            <button type="button" onClick={() => onLeaveFeedback(option)}>
+            <button
+              className="button"
+              type="button"
+              onClick={() => onLeaveFeedback(option)}
+            >
               {option}
             </button>
           </li>

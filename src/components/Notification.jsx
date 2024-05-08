@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import '../index.css';
 export const Notification = ({ feedbackGiven, children }) => {
   const [message, setMessage] = useState('');
 
@@ -6,5 +7,7 @@ export const Notification = ({ feedbackGiven, children }) => {
     setMessage("There's no feedback");
   }, []);
 
-  return <div>{feedbackGiven ? children : <p>{message}</p>}</div>;
+  return (
+    <div className="div">{feedbackGiven ? children : <p>{message}</p>}</div>
+  );
 };

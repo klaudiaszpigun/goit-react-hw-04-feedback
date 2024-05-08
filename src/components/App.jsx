@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import '../index.css';
 import { FeedbackOptions } from './FeedbackOptions';
 import { Notification } from './Notification';
 import { Statistics } from './Statistics';
+
 export const App = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
@@ -26,26 +28,25 @@ export const App = () => {
   };
 
   return (
-    <div>
-      <h1>Please leave your feedback</h1>
-      <FeedbackOptions
-        options={['good', 'neutral', 'bad']}
-        // export funkcji
-        onLeaveFeedback={handleClick}
-      />
-      <h2>Statistics</h2>
-      <Notification
-        message="There is no feedback"
-        feedbackGiven={good > 0 || neutral > 0 || bad > 0}
-      >
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={countTotalFeedback()}
-          positivePercentage={countPositiveFeedbackPercentage()}
+    <div className="div">
+      <div className="container">
+        <h1>Please leave your feedback</h1>
+        <FeedbackOptions
+          options={['good', 'neutral', 'bad']}
+          // export funkcji
+          onLeaveFeedback={handleClick}
         />
-      </Notification>
+        <h2 className="second-heading">Statistics</h2>
+        <Notification feedbackGiven={good > 0 || neutral > 0 || bad > 0}>
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={countTotalFeedback()}
+            positivePercentage={countPositiveFeedbackPercentage()}
+          />
+        </Notification>
+      </div>
     </div>
   );
 };
